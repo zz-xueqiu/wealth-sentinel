@@ -1,0 +1,28 @@
+name: Daily Wealth Data Sync
+
+on:
+  schedule:
+    # 每天晚上 21:00 (UTC 13:00) 自动执行
+    - cron: '0 13 * * *' 
+  workflow_dispatch:
+
+jobs:
+  run-spider:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 运行抓取脚本
+        run: python spider.py
+
+      - name: 提交更新后的数据文件
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto-update latest wealth product data"
+          file_pattern: "products_data.json"
