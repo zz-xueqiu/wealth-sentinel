@@ -1,0 +1,62 @@
+{
+  "updated_at": "2026-10-31",
+  "coverage_goal": "all publicly disclosed short-term bank wealth products in China; availability separately verified",
+  "primary_sources": [
+    {
+      "id": "chinawealth",
+      "name": "中国理财网统一信息披露平台",
+      "url": "https://xinxipilu.chinawealth.com.cn",
+      "role": "official product registration, disclosures, NAV",
+      "automation_status": "pending_api_permission_validation"
+    },
+    {
+      "id": "financial_product_query",
+      "name": "金融产品查询平台",
+      "url": "https://www.jrcpcx.cn/",
+      "role": "product registration cross-check",
+      "automation_status": "pending_api_permission_validation"
+    }
+  ],
+  "issuer_groups": [
+    "国有大型银行",
+    "全国股份制银行",
+    "城商行",
+    "农商行",
+    "民营银行",
+    "理财子公司"
+  ],
+  "priority_sales_channels": [
+    "工商银行",
+    "农业银行",
+    "中国银行",
+    "建设银行",
+    "交通银行",
+    "邮储银行",
+    "平安银行",
+    "微众银行",
+    "光大银行",
+    "招商银行",
+    "兴业银行",
+    "中信银行",
+    "浦发银行",
+    "民生银行",
+    "广发银行",
+    "华夏银行",
+    "浙商银行",
+    "网商银行"
+  ],
+  "short_term_types": [
+    "cash_management",
+    "daily_open",
+    "minimum_holding_1_30_days",
+    "fixed_term_1_30_days"
+  ],
+  "rules": {
+    "identity_key": "official_registration_code",
+    "issuer_and_sales_channel": "separate",
+    "current_sale_status": "never infer from existence",
+    "missing_data": "null_or_unknown",
+    "funds": "exclude_from_bank_wealth_ranking",
+    "quota": "requires separately validated sales channel data"
+  }
+}
