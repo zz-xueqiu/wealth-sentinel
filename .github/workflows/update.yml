@@ -25,6 +25,8 @@ jobs:
           python-version: '3.11'
       - name: Build normalized snapshot
         run: python collectors/update.py
+      - name: Validate normalized data
+        run: python collectors/validate.py
       - name: Commit generated snapshots
         run: |
           if [[ -n "$(git status --porcelain -- data/products.json data/sources.json)" ]]; then
