@@ -1,0 +1,67 @@
+{
+  "updated_at": "2026-10-31",
+  "purpose": "Official public product catalogs and NAV pages; source discovery only, not proof of permitted automated extraction.",
+  "sources": [
+    {
+      "id": "abc",
+      "bank": "农业银行",
+      "catalog_url": "https://ewealth.abchina.com.cn/fs/filter/",
+      "nav_url": "https://ewealth.abchina.com/fs/default_netvalue/",
+      "catalog_features": [
+        "sales_status",
+        "term",
+        "issuer"
+      ],
+      "automation": "pending_access_and_terms_review"
+    },
+    {
+      "id": "ccb",
+      "bank": "建设银行",
+      "nav_url": "https://ccb.cn/cn/finance/products/net_value/list.html",
+      "catalog_features": [
+        "nav",
+        "seven_day_yield"
+      ],
+      "automation": "pending_access_and_terms_review"
+    },
+    {
+      "id": "icbc",
+      "bank": "工商银行",
+      "catalog_url": "https://icbc.com.cn/",
+      "catalog_features": [
+        "wealth_products",
+        "nav_navigation"
+      ],
+      "automation": "pending_endpoint_review"
+    },
+    {
+      "id": "pingan",
+      "bank": "平安理财",
+      "catalog_url": "https://wm.pingan.com/",
+      "catalog_features": [
+        "products",
+        "nav",
+        "disclosures"
+      ],
+      "automation": "pending_endpoint_review"
+    },
+    {
+      "id": "cebwm",
+      "bank": "光大理财",
+      "catalog_url": "https://www.cebwm.com",
+      "automation": "pending_endpoint_review"
+    },
+    {
+      "id": "webank",
+      "bank": "微众银行",
+      "automation": "official_public_catalog_not_yet_verified"
+    }
+  ],
+  "extraction_rules": [
+    "Do not claim currently on sale without a dated bank sale status",
+    "Keep issuer and distributor separate",
+    "Preserve original disclosure date and metric type",
+    "Do not bypass authentication, CAPTCHA or anti-bot protections",
+    "Check site terms before automated collection"
+  ]
+}
