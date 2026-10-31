@@ -1,0 +1,36 @@
+name: Build short-term wealth data snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 1,9 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wealth-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build normalized snapshot
+        run: python collectors/update.py
+      - name: Commit generated snapshots
+        run: |
+          if [[ -n "$(git status --porcelain -- data/products.json data/sources.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/products.json data/sources.json
+            git commit -m "chore(data): refresh normalized snapshot"
+            git push
+          fi
