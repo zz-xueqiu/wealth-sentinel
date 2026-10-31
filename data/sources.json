@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-10-31T06:27:08.344153+00:00",
+  "sources": [
+    {
+      "id": "legacy",
+      "status": "unverified_seed"
+    },
+    {
+      "id": "chinawealth",
+      "status": "not_connected"
+    },
+    {
+      "id": "banks",
+      "status": "not_connected"
+    }
+  ]
+}
